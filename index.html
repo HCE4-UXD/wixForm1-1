@@ -8,18 +8,18 @@
 html {
 	height: 100%;
 	/*Image only BG fallback*/
-
+	
 	/*background = gradient + image pattern combo*/
-	background:
+	background: 
 		linear-gradient(90deg, rgba(2,0,36,0.6) 0%, rgba(0,212,255,0.6) 0%, rgba(19,66,106,0.6) 0%);
 }
 
 body {
-	font-family: montserrat, arial, verdana;
+	font-family: futura, arial, verdana;
 }
 /*form styles*/
 #msform {
-	width: 400px;
+	width: 600px;
 	margin: 50px auto;
 	text-align: center;
 	position: relative;
@@ -27,13 +27,13 @@ body {
 #msform fieldset {
 	background: white;
 	border: 0 none;
-	border-radius: 3px;
+	border-radius: 10px;
 	box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
 	padding: 20px 30px;
 	box-sizing: border-box;
 	width: 80%;
 	margin: 0 10%;
-
+	
 	/*stacking fieldsets above each other*/
 	position: relative;
 }
@@ -42,21 +42,22 @@ body {
 	display: none;
 }
 /*inputs*/
-#msform input, #msform textarea {
-	padding: 15px;
-	border: 1px solid #ccc;
-	border-radius: 3px;
-	margin-bottom: 10px;
+#msform input, #msform textarea, #msform select, #msform option {
+	padding: 20px;
+	border: 2px solid #ccc;
+	border-radius: 10px;
+	margin-bottom: 20px;
 	width: 100%;
 	box-sizing: border-box;
-	font-family: montserrat;
+	font-family: futura;
 	color: #2C3E50;
-	font-size: 13px;
+	font-size: 15px;
+  font-weight: bold;
 }
 /*buttons*/
 #msform .action-button {
 	width: 100px;
-	background: #27AE60;
+	background: #13426A;
 	font-weight: bold;
 	color: white;
 	border: 0 none;
@@ -70,66 +71,22 @@ body {
 }
 /*headings*/
 .fs-title {
+  font-weight: bold;
 	font-size: 15px;
 	text-transform: uppercase;
-	color: #2C3E50;
+	color: #13426A;
 	margin-bottom: 10px;
 }
 .fs-subtitle {
-	font-weight: normal;
+	font-weight: bold;
 	font-size: 13px;
 	color: #666;
 	margin-bottom: 20px;
 }
-/*progressbar*/
-#progressbar {
-	margin-bottom: 30px;
-	overflow: hidden;
-	/*CSS counters to number the steps*/
-	counter-reset: step;
+input::placeholder{
+  opacity:0.8;
 }
-#progressbar li {
-	list-style-type: none;
-	color: white;
-	text-transform: uppercase;
-	font-size: 9px;
-	width: 33.33%;
-	float: left;
-	position: relative;
-}
-#progressbar li:before {
-	content: counter(step);
-	counter-increment: step;
-	width: 20px;
-	line-height: 20px;
-	display: block;
-	font-size: 10px;
-	color: #333;
-	background: white;
-	border-radius: 3px;
-	margin: 0 auto 5px auto;
-}
-/*progressbar connectors*/
-#progressbar li:after {
-	content: '';
-	width: 100%;
-	height: 2px;
-	background: white;
-	position: absolute;
-	left: -50%;
-	top: 9px;
-	z-index: -1; /*put it behind the numbers*/
-}
-#progressbar li:first-child:after {
-	/*connector not needed before the first step*/
-	content: none;
-}
-/*marking active/completed steps green*/
-/*The number of the step and the connector before it = green*/
-#progressbar li.active:before,  #progressbar li.active:after{
-	background: #27AE60;
-	color: white;
-}
+
 </style>
 <style>
 //jQuery time
@@ -243,8 +200,14 @@ $(".submit").click(function(){
     <input type="text" name="country" placeholder="Country" />
 <!-- Clients choice of products -->
     <input type="text" name="products" placeholder="Choice of Products" />
+    <select id="cars" name="products">
+    <option value="" disabled selected hidden>Choice of Seminar</option>  
+    <option value="seminar1">AI Seminar</option>
+    <option value="seminar2">Finance Seminar</option>
+    <option value="seminar3">Marketing Seminar</option>
+    <option value="seminar4">Management Seminar</option>
+  </select>
    
     <input type="submit" name="submit" class="submit action-button" value="Submit" />
   </fieldset>
-  
 </form>
