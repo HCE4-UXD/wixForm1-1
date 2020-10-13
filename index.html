@@ -86,6 +86,11 @@ body {
 input::placeholder{
   opacity:0.8;
 }
+	
+	 .row{
+      display: flex;
+      justify-content: space-around;
+      padding: 10px;
 
 </style>
 <style>
@@ -176,6 +181,7 @@ $(".submit").click(function(){
   <!-- fieldsets -->
   <fieldset>
     <h2 class="fs-title">Get In Touch With Us!</h2>
+	  <div class="row">
     <!-- Name of Company -->
     <input type="text" name="company" placeholder="Company" />
     <!-- Clients First Name -->
@@ -200,7 +206,6 @@ $(".submit").click(function(){
     <input type="text" name="country" placeholder="Country" />
 	  
 <!-- Clients choice of Seminar -->
-    <input type="text" name="products" placeholder="Choice of Products" />
     <select id="cars" name="products">
     <option value="" disabled selected hidden>Choice of Seminar</option>  
     <option value="seminar1">AI Seminar</option>
@@ -217,6 +222,7 @@ $(".submit").click(function(){
                     <option value="5d6m">5 Day Seminar + 6 Months of Support</option>
                 </select>
                 <input type="text" name="message" placeholder="Input a message" />
+	  </div>
    
     <input type="submit" name="submit" class="submit action-button" value="Submit" />
   </fieldset>
